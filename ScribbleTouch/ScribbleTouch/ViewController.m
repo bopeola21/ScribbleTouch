@@ -8,37 +8,144 @@
 
 #import "ViewController.h"
 #import "ScribbleView.h"
+#import "ChoiceViewController.h"
 
-@interface ViewController ()
+///triangle, ellipse, connect fill color
+
+@interface ViewController () <ChoiceViewControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *blendModeButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *shapeTypeButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *toggleButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *drawerLeftConstraint;
+
 
 @end
+
 
 @implementation ViewController
 {
     NSMutableDictionary * currentScribble;
-    UIColor * selectedColor;
+    UIColor * selectedstrokeColor;
     int selectedStrokeWidth;
+    
+    UIColor * selectedFillColor;
+    
+    float shapeAlpha;
+    
+    NSString * selectedBlendMode;
+    NSString * selectedShapeType;
+    
+    
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    selectedColor = [UIColor blackColor];
+    
+    selectedFillColor  = [UIColor clearColor];
+    selectedstrokeColor = [UIColor blackColor];
     selectedStrokeWidth = 1;
+    selectedBlendMode = @"Normal";
+    selectedShapeType = @"Scribble";
+    shapeAlpha = 1;
 
 }
 
-- (IBAction)changeColor:(UIButton *)sender {
+- (IBAction)changeFillColor:(UIButton *)sender {
     
-    selectedColor = sender.backgroundColor;
+    selectedFillColor = sender.backgroundColor;
     
 }
+
+
+- (IBAction)changeStrokeColor:(UIButton *)sender {
+    
+    selectedstrokeColor = sender.backgroundColor;
+    
+}
+
 
 - (IBAction)changeStrokeWidth:(UISlider *)sender {
     
     selectedStrokeWidth = sender.value;
     
 }
+
+-(void)choice:(NSString *)choice forGroupp:(NSString *)group {
+    
+    if ([group isEqualToString:@"BlendMode"]) {
+        
+        selectedBlendMode = choice;
+        [self.blendModeButton setTitle:choice forState:UIControlStateNormal];
+        
+    }
+    
+    if ([group isEqualToString:@"ShapeType"]) {
+        
+        selectedShapeType = choice;
+        [self.shapeTypeButton setTitle:choice forState:UIControlStateNormal];
+        
+    }
+    
+    NSLog(@"Choice = %@ for Group %@",choice,group);
+}
+
+- (IBAction)changeBlendMode:(id)sender {
+    
+    // grabs storyboard
+    
+    ChoiceViewController * choiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"choiceVC"];
+    
+    choiceVC.delegate = self;
+    choiceVC.group = @"BlendMode";
+    choiceVC.choices = @[
+                         @"Normal",
+                         @"Multiply",
+                         @"Overlay",
+                         @"Screen",
+                         @"Clear"
+                         ];
+    [self presentViewController:choiceVC animated:NO completion:nil];
+    
+    
+}
+
+
+- (IBAction)changeShapeType:(id)sender {
+    
+    // string "choiceVC" has to match up with storyboard id
+    
+    ChoiceViewController * choiceVC = [self.storyboard instantiateViewControllerWithIdentifier:@"choiceVC"];
+    
+    choiceVC.delegate = self;
+    choiceVC.group = @"ShapeType";
+    choiceVC.choices = @[
+                         @"Scribble",
+                         @"Line",
+                         @"Rectangle",
+                         @"Ellipse",
+                         @"Triangle"
+                         ];
+    [self presentViewController:choiceVC animated:NO completion:nil];
+}
+
+
+- (IBAction)showHIdeDrawer:(id)sender {
+    
+    self.drawerLeftConstraint.constant = (self.drawerLeftConstraint.constant == -16) ? -266:-16;
+    
+    
+}
+
+
+
+
+
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
@@ -49,9 +156,10 @@
     
     currentScribble = [@{
                          
-                         @"type":@"path",
-                         @"fillColor":[UIColor clearColor],
-                         @"strokeColor":selectedColor,
+                         @"type":selectedShapeType,
+                         @"blend":selectedBlendMode,
+                         @"fillColor":selectedFillColor,
+                         @"strokeColor":selectedstrokeColor,
                          @"strokeWidth":@(selectedStrokeWidth),
                          @"points":[@[[NSValue valueWithCGPoint:location]] mutableCopy]
                          
@@ -68,7 +176,16 @@
     
     CGPoint location = [touch locationInView:self.view];
     
-    [currentScribble[@"points"] addObject:[NSValue valueWithCGPoint:location]];
+    if ([selectedShapeType isEqualToString:@"Scribble"]) {
+        
+        [currentScribble[@"points"] addObject:[NSValue valueWithCGPoint:location]];
+        
+    } else {
+    
+        currentScribble[@"points"][1] = [NSValue valueWithCGPoint:location];
+        
+    }
+    
     
     [self.view setNeedsDisplay];
 }
