@@ -2,8 +2,8 @@
 //  ChoiceViewController.m
 //  ScribbleTouch
 //
-//  Created by Jide Opeola on 1/15/15.
-//  Copyright (c) 2015 Jo Albright. All rights reserved.
+//  Created by Jide Opeola on 1/16/15.
+//  Copyright (c) 2015 Jide Opeola. All rights reserved.
 //
 
 #import "ChoiceViewController.h"
@@ -32,13 +32,15 @@
     self.backgroundView.alpha = 0;
     
     
+//    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     
-    [UIView animateWithDuration:0.4 animations:^{
-        
-        self.backgroundView.alpha = 0.8;}];
+    [UIView animateWithDuration:0.1 animations:^{
+    
+        self.backgroundView.alpha = 0.1;}];
 
 }
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
@@ -67,6 +69,9 @@
     NSString * choice = self.choices[[self.pickerView selectedRowInComponent:0]];
     
     [self.delegate choice:choice forGroupp:self.group];
+    
+
+    
     
     [UIView animateWithDuration:0.4 animations:^{ self.backgroundView.alpha = 0;
         

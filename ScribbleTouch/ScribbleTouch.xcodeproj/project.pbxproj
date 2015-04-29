@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0819ABF51A6C148100B98D00 /* CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 0819ABF41A6C148100B98D00 /* CustomSlider.m */; };
+		087D3AA91A6DDDAA00D87F79 /* arrowkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 087D3AA81A6DDDAA00D87F79 /* arrowkey.png */; };
 		087DCC7F1A68198400C3D589 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 087DCC7E1A68198400C3D589 /* ChoiceViewController.m */; };
+		08BE00DD1A6966D500879C12 /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BE00DC1A6966D500879C12 /* CircleButton.m */; };
+		08BE00E01A6A109F00879C12 /* BlendmodeShapebutton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BE00DF1A6A109F00879C12 /* BlendmodeShapebutton.m */; };
 		A9F572C41A66C7BB007B1EEA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F572C31A66C7BB007B1EEA /* main.m */; };
 		A9F572C71A66C7BB007B1EEA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F572C61A66C7BB007B1EEA /* AppDelegate.m */; };
 		A9F572CA1A66C7BB007B1EEA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9F572C91A66C7BB007B1EEA /* ViewController.m */; };
@@ -29,8 +33,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0819ABF31A6C148100B98D00 /* CustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlider.h; sourceTree = "<group>"; };
+		0819ABF41A6C148100B98D00 /* CustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlider.m; sourceTree = "<group>"; };
+		087D3AA81A6DDDAA00D87F79 /* arrowkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arrowkey.png; path = /Applications/MAMP/htdocs/images/arrowkey.png; sourceTree = "<absolute>"; };
 		087DCC7D1A68198400C3D589 /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
 		087DCC7E1A68198400C3D589 /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
+		08BE00DB1A6966D500879C12 /* CircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleButton.h; sourceTree = "<group>"; };
+		08BE00DC1A6966D500879C12 /* CircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleButton.m; sourceTree = "<group>"; };
+		08BE00DE1A6A109F00879C12 /* BlendmodeShapebutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlendmodeShapebutton.h; sourceTree = "<group>"; };
+		08BE00DF1A6A109F00879C12 /* BlendmodeShapebutton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlendmodeShapebutton.m; sourceTree = "<group>"; };
 		A9F572BE1A66C7BB007B1EEA /* ScribbleTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScribbleTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9F572C21A66C7BB007B1EEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9F572C31A66C7BB007B1EEA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,6 +104,10 @@
 				A9F572E81A66C81E007B1EEA /* ScribbleView.m */,
 				A9F572C81A66C7BB007B1EEA /* ViewController.h */,
 				A9F572C91A66C7BB007B1EEA /* ViewController.m */,
+				08BE00DE1A6A109F00879C12 /* BlendmodeShapebutton.h */,
+				08BE00DF1A6A109F00879C12 /* BlendmodeShapebutton.m */,
+				08BE00DB1A6966D500879C12 /* CircleButton.h */,
+				08BE00DC1A6966D500879C12 /* CircleButton.m */,
 				A9F572CB1A66C7BB007B1EEA /* Main.storyboard */,
 				A9F572C11A66C7BB007B1EEA /* Supporting Files */,
 			);
@@ -102,6 +117,9 @@
 		A9F572C11A66C7BB007B1EEA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				087D3AA81A6DDDAA00D87F79 /* arrowkey.png */,
+				0819ABF31A6C148100B98D00 /* CustomSlider.h */,
+				0819ABF41A6C148100B98D00 /* CustomSlider.m */,
 				A9F572C51A66C7BB007B1EEA /* AppDelegate.h */,
 				A9F572C61A66C7BB007B1EEA /* AppDelegate.m */,
 				A9F572CE1A66C7BB007B1EEA /* Images.xcassets */,
@@ -178,6 +196,7 @@
 				TargetAttributes = {
 					A9F572BD1A66C7BB007B1EEA = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = X3JF99A2D6;
 					};
 					A9F572D61A66C7BB007B1EEA = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -210,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F572CD1A66C7BB007B1EEA /* Main.storyboard in Resources */,
+				087D3AA91A6DDDAA00D87F79 /* arrowkey.png in Resources */,
 				A9F572D21A66C7BB007B1EEA /* LaunchScreen.xib in Resources */,
 				A9F572CF1A66C7BB007B1EEA /* Images.xcassets in Resources */,
 			);
@@ -230,10 +250,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9F572CA1A66C7BB007B1EEA /* ViewController.m in Sources */,
+				08BE00E01A6A109F00879C12 /* BlendmodeShapebutton.m in Sources */,
 				A9F572C71A66C7BB007B1EEA /* AppDelegate.m in Sources */,
 				A9F572E91A66C81E007B1EEA /* ScribbleView.m in Sources */,
 				087DCC7F1A68198400C3D589 /* ChoiceViewController.m in Sources */,
 				A9F572C41A66C7BB007B1EEA /* main.m in Sources */,
+				08BE00DD1A6966D500879C12 /* CircleButton.m in Sources */,
+				0819ABF51A6C148100B98D00 /* CustomSlider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +378,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ScribbleTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,6 +389,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ScribbleTouch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

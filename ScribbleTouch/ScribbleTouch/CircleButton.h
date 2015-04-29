@@ -1,5 +1,5 @@
 //
-//  ScribbleView.h
+//  CircleButton.h
 //  ScribbleTouch
 //
 //  Created by Jide Opeola on 1/16/15.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScribbleView : UIView
+IB_DESIGNABLE
 
-@property (nonatomic) NSMutableArray * scribbles;
+@interface CircleButton : UIButton
+
+@property (nonatomic) IBInspectable int cornerSize;
 
 @end
